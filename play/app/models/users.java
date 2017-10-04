@@ -9,14 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.Base64;
 import java.util.UUID;
 import  java.lang.Object;
 import javax.persistence.EntityManager;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Constraint;
-import  static play.data.Form.*;
+import  static.play.data.Form.*;
 import play.db.jpa.JPAApi;
 
 
@@ -63,8 +62,7 @@ public class users {
         this.lastname=lastName;
         this.email = email;
         this.setPassword(password);
-       // this.city = (City)((HibernateEntityManager) JPA.em()).getSession().createCriteria(City.class).add(Restrictions.eq("id", cityId)).uniqueResult();
-    }
+           }
 
 
     public UUID getId() { return id; }
@@ -92,51 +90,18 @@ public class users {
 
     public String getPhone() { return phone; }
 
-    /**
-     * Sets phone.
-     *
-     * @param phone the phone
-     */
-    public void setPhone(String phone) { this.phone = phone; }
-
-    /**
-     * Gets email.
-     *
-     * @return the email
-     */
+        public void setPhone(String phone) { this.phone = phone; }
     public String getEmail() { return email; }
 
-    /**
-     * Sets email.
-     *
-     * @param email the email
-     */
+    
     public void setEmail(String email) { this.email = email; }
 
-    /**
-     * Sets password.
-     *
-     * @param password the password
-     */
     public void setPassword(String password) {
-        //this.salt = base64Encode(Passwords.getNextSalt());
-        //this.paswor = base64Encode(Passwords.hash(password.toCharArray(), base64Decode(this.salt)));
-        this.passwor=password;
+
+                this.passwor=password;
     }
 
-    private String base64Encode(byte[] bytes) {
-        return Base64.getEncoder().encodeToString(bytes);
-    }
-
-    private byte[] base64Decode(String string) {
-        return Base64.getDecoder().decode(string);
-    }
-
-    /**
-     * Gets is admin.
-     *
-     * @return the is admin
-     */
+   
     public Boolean getIsAdmin() { return isAdmin; }
 
 
