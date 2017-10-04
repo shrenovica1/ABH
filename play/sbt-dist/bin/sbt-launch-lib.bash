@@ -82,6 +82,7 @@ get_mem_opts () {
   elif [[ "${SBT_OPTS}" == *-Xmx* ]] || [[ "${SBT_OPTS}" == *-Xms* ]] || [[ "${SBT_OPTS}" == *-XX:MaxPermSize* ]] || [[ "${SBT_OPTS}" == *-XX:MaxMetaspaceSize* ]] || [[ "${SBT_OPTS}" == *-XX:ReservedCodeCacheSize* ]]; then
     echo ""
   else
+  else
     # a ham-fisted attempt to move some memory settings in concert
     # so they need not be messed around with individually.
     local mem=${1:-1024}
